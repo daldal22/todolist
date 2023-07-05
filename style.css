@@ -1,0 +1,170 @@
+@font-face {
+    font-family: 'Gmarket Sans';    font-style: normal;    font-weight: 700;
+    src: local('Gmarket Sans Bold'), local('GmarketSans-Bold'),
+    url('http://script.ebay.co.kr/fonts/GmarketSansBold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('http://script.ebay.co.kr/fonts/GmarketSansBold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+    font-family: 'Gmarket Sans';    font-style: normal;    font-weight: 500;
+    src: local('Gmarket Sans Medium'), local('GmarketSans-Medium'),
+    url('http://script.ebay.co.kr/fonts/GmarketSansMedium.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('http://script.ebay.co.kr/fonts/GmarketSansMedium.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+    font-family: 'Gmarket Sans';    font-style: normal;    font-weight: 300;
+    src: local('Gmarket Sans Light'), local('GmarketSans-Light'),
+    url('http://script.ebay.co.kr/fonts/GmarketSansLight.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('http://script.ebay.co.kr/fonts/GmarketSansLight.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+button{
+    background: inherit; 
+    border:none; 
+    box-shadow:none; 
+    border-radius:0; 
+    padding:0; 
+    overflow:visible; 
+    cursor:pointer}
+
+/**/
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container *{
+    box-sizing: border-box;
+}
+
+.wrap-session{
+    border: 3px solid #3C54D2;
+    border-radius: 15px;
+    width: 600px;
+    padding: 60px 80px;
+}
+
+@media(max-width:1500px){
+    .container{
+        transform: scale(90%);
+    }
+}
+
+.title-session{
+    font-size: 24px;
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.input-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.btn-send{
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    padding-right: 2px;
+    border-radius: 200px;
+    margin-left: 20px;
+}
+
+.write-todolist{
+    margin-top: 30px;
+    padding: 8px 20px 8px 20px;
+    width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-bottom: 30px;
+}
+
+.write-todolist:focus{
+    outline: none;
+}
+
+.check-done{
+    z-index: 1;
+    background: #c6c6c6;
+    color: #757575;
+}
+
+.todo-list{
+    display: flex;
+    font-size: 16px;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.item-list{
+    margin-top: 2px;
+}
+
+.todo-list:last-child{
+    border-bottom: none;
+}
+
+.fa-trash-can{
+    margin-left: 10px;
+}
