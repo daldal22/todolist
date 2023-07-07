@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/f76342c0c3.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/f76342c0c3.js" crossorigin="anonymous"></script>
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="wrap-session">
-        <h1 class="title-session">일정관리</h1>
-        <div class="input-area">
-            <input class="write-todolist" type="text" placeholder="일정을 기록해주세요.">
-            <button class="btn-send"><i class="fa-regular fa-paper-plane"></i></button>
-        </div>
-        <div class="todo-list check-done">
-            <input type="checkbox" class="checkbox">
-            <p class="item-list">js 복습하기</p>
-            <div class="icon-todolist">
-                <i class="fa-solid fa-pen"></i>
-                <i class="fa-regular fa-trash-can"></i>
-            </div>
-        </div>
-        <div class="todo-list">
-            <input type="checkbox" class="checkbox">
-            <p class="item-list">개인 프로젝트 작업하기</p>
-            <div class="icon-todolist">
-                <i class="fa-solid fa-pen"></i>
-                <i class="fa-regular fa-trash-can"></i>
-            </div>
-        </div>
-        <div class="todo-list">
-            <input type="checkbox" class="checkbox">
-            <p class="item-list">알고리즘 풀기</p>
-            <div class="icon-todolist">
-                <i class="fa-solid fa-pen"></i>
-                <i class="fa-regular fa-trash-can"></i>
-            </div>
-        </div>
+<div class="container">
+  <li class="wrap-session">
+    <h1 class="title-session">일정관리</h1>
+    <div class="input-area">
+      <input class="write-todolist" type="text" placeholder="일정을 기록해주세요.">
+      <button class="btn-send"><i class="fa-solid fa-plus"></i></button>
     </div>
-    </div>
+    <ul class="list-todos">
+  </ul>
+</div>
 </body>
 </html>
