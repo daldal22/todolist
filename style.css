@@ -36,6 +36,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+    list-style: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -97,74 +98,9 @@ button{
 }
 
 .title-session{
-    font-size: 24px;
-    font-family: 'Noto Sans KR', sans-serif;
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
+    color: #3C54D2;
 }
 
-.input-area{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.btn-send{
-    font-size: 16px;
-    color: #333;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    width: 40px;
-    height: 40px;
-    padding-right: 2px;
-    border-radius: 200px;
-    margin-left: 20px;
-}
-
-.write-todolist{
-    margin-top: 30px;
-    padding: 8px 20px 8px 20px;
-    width: 90%;
-    border: 1px solid #ddd;
-    border-radius: 30px;
-    font-size: 18px;
-    font-family: 'Noto Sans KR', sans-serif;
-    margin-bottom: 30px;
-}
-
-.write-todolist:focus{
-    outline: none;
-}
-
-.check-done{
-    z-index: 1;
-    background: #c6c6c6;
-    color: #757575;
-}
-
-.todo-list{
-    display: flex;
-    font-size: 16px;
-    width: 100%;
-    justify-content: space-between;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 16px;
-    padding-top: 16px;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.item-list{
-    margin-top: 2px;
-}
-
-.todo-list:last-child{
-    border-bottom: none;
-}
-
-.fa-trash-can{
-    margin-left: 10px;
+.item-todo{
+    color: #3C54D2;
 }
