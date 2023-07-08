@@ -1,7 +1,7 @@
 const todos = [
-    {id: 0, content: '할일', done: false},
-    {id: 1, content: '할일', done: true},
-    {id: 2, content: '할일', done: false}
+    {id: 0, content: 'js 복습하기', done: false},
+    {id: 1, content: '개인 프로젝트', done: true},
+    {id: 2, content: '알고리즘 문제 풀기', done: false}
   ]
   //    <li class="item-todo check-done">
   //       <input type="checkbox" class="checkbox">
@@ -18,13 +18,13 @@ const todos = [
       const $todo = document.createElement('li')
       $todo.classList.add('item-todo')
 
-      // 컨테이너
-
+      // 날짜
   
       // 체크박스
       const $checkbox = document.createElement('input')
       $checkbox.type = 'checkbox'
       $checkbox.classList.add('checkbox')
+      
       // 컨텐트
       const $p = document.createElement('p')
       const $content = document.createTextNode(v.content)
