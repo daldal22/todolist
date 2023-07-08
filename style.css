@@ -77,7 +77,6 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 .container *{
@@ -85,10 +84,9 @@ button{
 }
 
 .wrap-session{
-    border: 3px solid #3C54D2;
-    border-radius: 15px;
+    border: 2px solid #3C54D2;
     width: 600px;
-    padding: 60px 80px;
+    padding: 60px 60px;
 }
 
 @media(max-width:1500px){
@@ -97,10 +95,93 @@ button{
     }
 }
 
+.wrap-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    border-bottom: 1px solid #3C54D2;
+    padding-bottom: 20px;
+}
+
 .title-session{
+    color: #3C54D2;
+    font-family: 'Noto Sans KR';
+    font-size: 32px;
+    font-weight: 500;
+    padding-left: 4px;
+}
+
+.date-session{
+    font-size: 16px;
+    font-family: 'Noto Sans KR';
+    color: #333;
+    padding-right: 4px;
+}
+
+.write-todolist{
+    border: 1px solid #ddd;
+    width: 90%;
+    padding: 8px 8px 8px 12px;
+    font-size: 16px;
+}
+
+.write-todolist:focus{
+    outline: none;
+}
+
+.input-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 0px 8px;
+}
+
+.btn-send{
+    font-size: 24px;
     color: #3C54D2;
 }
 
+.list-todos{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
 .item-todo{
-    color: #3C54D2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.item-todo:last-child{
+    border-bottom: none;
+    padding-bottom: none;
+    margin-bottom: none;
+}
+
+/* .checkbox{
+    transform: scale(1.2);
+} */
+
+.item-todo p{
+    font-size: 16px;
+    color: #333;
+    font-family: 'Noto Sans KR';
+}
+
+.btn-edit{
+    font-size: 16px;
+    color: #333;
+}
+
+.btn-delete{
+    margin-left: 16px;
+    font-size: 16px;
+    color: #333;
 }
