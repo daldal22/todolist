@@ -75,10 +75,7 @@ $btnDelete.addEventListener('click', erase)
   }
 
   function erase(e) {
-    const listItem = e.target.querySelector('.item-todo');
-    if (!listItem) return;
-  
-    todos = todos.filter((v) => v !== listItem);
+    todos = todos.filter();
     render();
   }
   
