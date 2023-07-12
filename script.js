@@ -105,7 +105,11 @@ $input.addEventListener('keyup', add)
   }
   
   function edit(e){
-    todos = 
+    const $todoList = document.querySelector('.list-todos');
+    $todoList.addEventListener('click', (e) => {
+      const $listItem = e.currentTarget('.item-todo');
+      if(!$listItem) return;
+    })
   }
 
   // target은 이벤트가 발생한 위치
