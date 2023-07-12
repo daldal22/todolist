@@ -11,16 +11,21 @@ let todos = [
   //           <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
   //         </div>
   //     </li>
+
+//   <li class="item-todo edit">
+//   <input type="text" class="input-edit" value="">
+//   <p class="content"></p>
+//   </li>
+//   <li class="item-todo">
+//   <input type="text" class="input-edit" value="">
+//   <p class="content"></p>
+//   </li>
   
 const $input = document.querySelector('.write-todolist')
 const $button = document.querySelector('.btn-send')
-const $btnDelete = document.querySelector('.btn-delete')
-//const $btnEdit = document.querySelector('.btn-edit')
 
 $button.addEventListener('click', add)
 $input.addEventListener('keyup', add)
-$btnDelete.addEventListener('click', erase)
-//$btnEdit.addEventListener('click',edit)
 
   function render() {
     const $todoList = document.querySelector('.list-todos')
@@ -28,6 +33,10 @@ $btnDelete.addEventListener('click', erase)
     todos.forEach((v,i,a) => {
       const $todo = document.createElement('li')
       $todo.classList.add('item-todo')
+
+        if(todos.editMode){
+          $todo.classList.add('edit')
+        }
 
       // 날짜
   
@@ -49,15 +58,30 @@ $btnDelete.addEventListener('click', erase)
       const $btnDelete = document.createElement('button')
       $btnEdit.innerHTML = '<i class="fa-solid fa-pen"></i>'
       $btnDelete.innerHTML = '<i class="fa-regular fa-trash-can"></i>'
-      $btnEdit.classList.add('btn-edit')
-      $btnDelete.classList.add('btn-delete')
+      $btnEdit.classList.add('btn-edit', v.id)
+      $btnDelete.classList.add('btn-delete', v.id)
+      $btnDelete.addEventListener('click',erase) // true 넣으면 캡쳐링 단계에서 동작 / 아무것도 안 넣으면 버블링
+      $btnEdit.addEventListener('click',edit)
+
+      const $editInput = document.createElement('input');
+      $editInput.type('text');
+      $editInput.classList.add('input-edit');
+      $editInput.value = ''
+
+      const $editp = document.createElement('p')
+      $p.classList.add('content')
+      
       $buttons.appendChild($btnEdit)
       $buttons.appendChild($btnDelete)
-  
+      
+      $p.textContent = todos.content;
+
       // 투두 생성
       $todo.appendChild($checkbox)
       $todo.appendChild($p)
       $todo.appendChild($buttons)
+      $todo.appendChild($editInput)
+      $todo.appendChild($editp)
       $todoList.appendChild($todo)
     })
   }
@@ -74,14 +98,24 @@ $btnDelete.addEventListener('click', erase)
     render()
   }
 
-  function erase(e) {
-    todos = todos.filter();
-    render();
+  function erase(e) { // i를 타겟으로 실행함 그리고 상위 요소들도 실행함
+    const eraseId = +e.currentTarget.classList[1]
+    todos = todos.filter(v => v.id !== eraseId)
+    render()
   }
   
+  function edit(e){
+    todos = 
+  }
 
-  // function edit(){ // 인풋 따로 만들고 디자인 따로해야됌 css도 이벤트도 만들어줘야된다 체크박스 체크 될때 라인있고 체크해제하면 라인 삭제
+  // target은 이벤트가 발생한 위치
+  // currentTarget은 이벤트가 걸려있는 타겟을 잡음
 
-  // }
+  // 버블링은 상위요소로 찾아가는 것 
+  // 캡쳐링은 하위요소로 내려가는 것 가장 최상위 요소부터 실행
+
+  // 오늘 배운거 TIL로 작성 target, currentTarget, 버블링, 캡쳐링
+
+  // edit 만들어오고 git 공부
 
   render()
