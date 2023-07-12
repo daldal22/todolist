@@ -185,3 +185,11 @@ button{
     font-size: 16px;
     color: #333;
 }
+
+.line{
+    text-decoration: line-through;
+}
+
+.edit{
+    display: none;
+}
