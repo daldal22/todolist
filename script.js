@@ -26,15 +26,11 @@ function render() {
     $todo.classList.add('item-todo-'+v.id)
 
     // 체크박스
-    // const $checkboxIcon = document.createElement('label')
     const $checkbox = document.createElement('input')
     $checkbox.type = 'checkbox'
-    // $checkboxIcon.htmlFor = 'checkboxIcon'
-    // $checkboxIcon.innerHTML = '<i class="fa-solid fa-check"></i>'
-    $checkbox.classList.add('checkbox')
+    $checkbox.classList.add('checkbox', v.id)
     $checkbox.checked = v.done
-
-    // $checkboxIcon.appendChild($checkbox)
+    $checkbox.addEventListener('click', checkTodo)
 
     // 컨텐트
     const $p = document.createElement('p')
@@ -55,8 +51,9 @@ function render() {
     $btnDelete.innerHTML = '<i class="fa-regular fa-trash-can"></i>'
     $btnEdit.classList.add('btn-edit', v.id)
     $btnDelete.classList.add('btn-delete', v.id)
-    $btnDelete.addEventListener('click', erase) // true 넣으면 캡쳐링 단계에서 동작 / 아무것도 안 넣으면 버블링
+    $btnDelete.addEventListener('click', erase)
     $btnEdit.addEventListener('click', edit)
+    $btnEdit.addEventListener('input', editCheck)
 
     $buttons.appendChild($btnEdit)
     $buttons.appendChild($btnDelete)
@@ -75,13 +72,13 @@ function add(e) {
   if(!$input.value.trim().length) return
   // press enter or click add button
   const id = todos[todos.length-1].id + 1
-  const content = $input.value.trim() // trim은 문자열 앞뒤에 있는 빈칸 뺌 ' 1234 ' => '1234'
+  const content = $input.value.trim()
   const done = false
   todos.push({id, content, done})
   render()
 }
 
-function erase(e) { // i를 타겟으로 실행함 그리고 상위 요소들도 실행함
+function erase(e) {
   const eraseId = +e.currentTarget.classList[1]
   todos = todos.filter(v => v.id !== eraseId)
   render()
@@ -97,10 +94,21 @@ function edit(e){
 
   const $input = document.querySelector('.input-edit-'+editId)
   if(!$input.value.trim()) {
-    e.currentTarget.disabled = true; // 
+    // 값이 없을때 처리
+    // render()
+    for (const todo of todos) {
+      if(todo.id === editId) {
+        $input.value = todo.content
+        break
+        // 숙제: 버튼 disabled 시키는 방법으로 다시 구현하기
+        // 힌트: edit 함수에서 수정하는게 아님
+        // 힌트2: input에 값이 입력될 때마다 value를 확인하고 버튼의 상태를 변경해줘야 함
+        // input 이벤트 조사해서 버튼이 아니라 input에 이벤트를 넣어서 고쳐야함 버튼에 이벤트 거는거 아님
+        // git이랑 input 메서드 조사해서 정리하기
+      }
+    }
     return
   }
-
 
   todos = todos.map(v => {
     return v.id === editId ? {...v, content: $input.value.trim()} : v
@@ -116,31 +124,44 @@ function editCheck(e) {
 
   $li.classList.toggle('edit');
 
-  $btnEdit.forEach(($btnEdit) => {
-      $btnEdit.addEventListener('input', function(e){
-          editCheck(e)
-      })
-  })
-
   if (!$input.value.trim()) {
-    const find = todos.find((todo) => todo.id === editId);
-    if (find) {
-      find.content = '';
-      $btnEdit.disabled = true;
+      const find = todos.find((todo) => todo.id === editId);
+      if (find) {
+        find.content = '';
+        $btnEdit.disabled = true;
+      }
+      else{
+        $btnEdit.disabled = false;
+      }
+      return;
     }
-    else{
-      find.content = $input.value.trim();
-      $btnEdit.disabled = false;
-    }
-    return;
-  }
-  render();
+    render();
 }
 
-  // 에딧 버튼 활성화 안 하게... 벨류값 없으면 경고표시? 빨간 테두리라던가 경고문이라던가 2순위
-  // 체크박스 구현 에딧이랑 같이 3순위
-  // 할일 부분 이쁘게 css 만들기 1순위
-  // 인풋 css 수정
-  
+
+
+function checkTodo(e) {
+  // console.log(e.currentTarget.checked)
+  const $checkbox = e.currentTarget;
+  const editId = +$checkbox.classList[1]
+  const $li = document.querySelector('.item-todo-'+editId)
+  todos = todos.map((v) => {
+      if (v.id === editId) {
+        v.done = !v.done;
+        if (v.done) {
+          $li.classList.add("line");
+        } else {
+          $li.classList.remove("line");
+        }
+      }
+      // if(v.id === editId){
+      //     v.done = !v.done;
+      // }
+      return v;
+    });
+  //   render()
+      // 숙제2 : map 메소드 사용해서 todos의 done 상태 업데이트 하기
+      // 숙제3: content에 밑줄 그이게 하기
+}
 
 render()
