@@ -26,15 +26,15 @@ function render() {
     $todo.classList.add('item-todo-'+v.id)
 
     // 체크박스
-    const $checkboxIcon = document.createElement('label')
+    // const $checkboxIcon = document.createElement('label')
     const $checkbox = document.createElement('input')
     $checkbox.type = 'checkbox'
-    $checkboxIcon.htmlFor = 'checkboxIcon'
-    $checkboxIcon.innerHTML = '<i class="fa-solid fa-check"></i>'
+    // $checkboxIcon.htmlFor = 'checkboxIcon'
+    // $checkboxIcon.innerHTML = '<i class="fa-solid fa-check"></i>'
     $checkbox.classList.add('checkbox')
     $checkbox.checked = v.done
 
-    $checkboxIcon.appendChild($checkbox)
+    // $checkboxIcon.appendChild($checkbox)
 
     // 컨텐트
     const $p = document.createElement('p')
@@ -97,7 +97,7 @@ function edit(e){
 
   const $input = document.querySelector('.input-edit-'+editId)
   if(!$input.value.trim()) {
-    e.currentTarget.disabled = true;
+    e.currentTarget.disabled = true; // 
     return
   }
 
@@ -108,8 +108,39 @@ function edit(e){
   render()
 }
 
+function editCheck(e) {
+  const $input = e.target;
+  const editId = +$input.classList[1];
+  const $li = document.querySelector('.item-todo-' + editId);
+  const $btnEdit = $li.querySelector('.btn-edit');
+
+  $li.classList.toggle('edit');
+
+  $btnEdit.forEach(($btnEdit) => {
+      $btnEdit.addEventListener('input', function(e){
+          editCheck(e)
+      })
+  })
+
+  if (!$input.value.trim()) {
+    const find = todos.find((todo) => todo.id === editId);
+    if (find) {
+      find.content = '';
+      $btnEdit.disabled = true;
+    }
+    else{
+      find.content = $input.value.trim();
+      $btnEdit.disabled = false;
+    }
+    return;
+  }
+  render();
+}
+
   // 에딧 버튼 활성화 안 하게... 벨류값 없으면 경고표시? 빨간 테두리라던가 경고문이라던가 2순위
   // 체크박스 구현 에딧이랑 같이 3순위
   // 할일 부분 이쁘게 css 만들기 1순위
+  // 인풋 css 수정
+  
 
 render()
